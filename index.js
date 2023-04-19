@@ -11,7 +11,7 @@ const morgan = require("morgan");
 const ExpressMongoSanitize = require("express-mongo-sanitize");
 var xss = require("xss-clean");
 const hpp = require("hpp");
-require("dotenv").config({ path: ".env.dev" });
+require("dotenv").config({ path: process.env.NODE_ENV !== "development" ? ".env" : ".env.dev" });
 
 // create express server
 const app = express();
