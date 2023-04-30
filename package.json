@@ -7,7 +7,7 @@
     "dev": "set NODE_ENV=development&&nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "checkiamsiam",
   "license": "ISC",
   "description": "",
   "dependencies": {

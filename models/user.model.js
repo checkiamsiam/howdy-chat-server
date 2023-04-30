@@ -21,6 +21,11 @@ const userSchema = mongoose.Schema(
       required: true,
       minLength: [8, "password must be 8 character"],
     },
+    avatar: {
+      type: String,
+      required: true,
+      default: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+    },
     IP_address: String,
     last_login: Date,
     last_seen: Date,
@@ -33,11 +38,11 @@ const userSchema = mongoose.Schema(
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
-      next();
+    next();
   }
 
   this.password = await bcrypt.hash(this.password, 10);
-});;
+});
 
 const UserModel = mongoose.model("User", userSchema);
 
